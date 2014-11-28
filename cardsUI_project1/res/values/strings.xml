@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">cardsUI_project1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="setAlarm">Set Alarm</string>
+    <string name="text_Home">HOME</string>
+    <string name="home_location">Tap here to set location</string>
+    <string name="text_Work">WORK</string>
+    <string name="text_TimeToWork">TIME TO WORK</string>
+    <string name="time_to_work">Set Home and Work locations</string>
+    <string name="text_LeadTime">LEAD TIME</string>
+    <string name="set_lead_time">Tap here to set Lead Time</string>
+
+</resources>

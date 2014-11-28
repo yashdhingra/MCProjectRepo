@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:ignore="RtlHardcoded,HardcodedText" >
+
+      <Button
+          android:id="@+id/button1"
+          android:layout_width="131dp"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentRight="true"
+          android:layout_marginBottom="150dp"
+          android:layout_marginRight="16dp"
+          android:text="Exit" />
+
+      <Button
+          android:id="@+id/button"
+          android:layout_width="131dp"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/button1"
+          android:layout_alignBottom="@+id/button1"
+          android:layout_marginRight="19dp"
+          android:layout_toLeftOf="@+id/button1"
+          android:text="Back" />
+
+      <TextView
+          android:id="@+id/cordinates"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_alignRight="@+id/button"
+          android:layout_marginTop="97dp"
+          android:text="" />
+
+</RelativeLayout>

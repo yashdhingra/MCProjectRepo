@@ -1,0 +1,174 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    tools:context="com.example.cardsui_project1.MainActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@+id/frameLayout1"
+                style="@style/nowCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="70dp"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="left"
+                    android:src="@drawable/alarm_clock_icon" />
+
+                <TextView
+                    android:id="@+id/alarmTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:clickable="true"
+                    android:gravity="right"
+                    android:onClick="onSetAlarmButtonClick"
+                    android:text="@string/setAlarm"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_darkest"
+                    android:textSize="40sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="end"
+                    android:background="#00FFFFFF"
+                    android:onClick="onCancelAlarmButtonClick"
+                    android:src="@drawable/ic_close_normal" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                style="@style/nowCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/frameLayout1"
+                android:minHeight="100dp" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/text_Home"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_dark" />
+
+                <TextView
+                    android:id="@+id/homeLocationTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/home_location"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_lightest" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                style="@style/nowCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/frameLayout2"
+                android:minHeight="100dp" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/text_Work"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_darkest" />
+
+                <TextView
+                    android:id="@+id/workLocationTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/home_location"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_lightest" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout4"
+                style="@style/nowCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/frameLayout3" >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/text_TimeToWork"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_darkest" />
+
+                <TextView
+                    android:id="@+id/curTimeToWorkTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/time_to_work"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_lightest" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout5"
+                style="@style/nowCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/frameLayout4" >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/text_LeadTime"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_darkest" />
+
+                <TextView
+                    android:id="@+id/leadTimeTextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:inputType="number"
+                    android:onClick="onLeadTimeClick"
+                    android:text="@string/set_lead_time"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_lightest" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

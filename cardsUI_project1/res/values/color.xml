@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_light">#EFEFEF</color>
+    <color name="text_dark">#707070</color>
+    <color name="text_lightest">#DEDEDE</color>
+    <color name="text_darkest">#878787</color>
+    
+</resources>
