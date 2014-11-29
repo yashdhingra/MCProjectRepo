@@ -53,7 +53,7 @@ public class TrafficJaamAlertService extends Service
 		{
 			AndroidHttpClient mClient = AndroidHttpClient.newInstance("");
 			JSONResponseHandler responseHandler = new JSONResponseHandler();
-			String trafficTime = ":-(";
+			String trafficTimeInMins = ":-(";
 			from_lat = 28.527829;
 			from_lng = 77.205799;
 			to_lat = 28.545926;
@@ -63,7 +63,7 @@ public class TrafficJaamAlertService extends Service
 			
 			try
 			{
-				trafficTime = mClient.execute(request, responseHandler);
+				trafficTimeInMins = mClient.execute(request, responseHandler);
 			} catch (ClientProtocolException e)
 			{
 				e.printStackTrace();
@@ -74,7 +74,13 @@ public class TrafficJaamAlertService extends Service
 			if (null != mClient)
 				mClient.close();
 			
-			MainActivity.mBuilder.setContentText(trafficTime + "minutes to work.");
+//			Date alarmTime = new Date();
+//			alarmTime.setHours(10);
+//			alarmTime.setMinutes(20);
+//			
+//			Date traff
+//			if(((new Date()).getTime() - alarmTime.getTime()) < ())
+			MainActivity.mBuilder.setContentText(trafficTimeInMins + "minutes to work.");
 			NotificationManager mNotificationManager =
 				    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 				// mId allows you to update the notification later on.

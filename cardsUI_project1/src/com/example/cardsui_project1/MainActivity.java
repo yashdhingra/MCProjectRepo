@@ -32,7 +32,7 @@ import android.widget.Toast;
 public class MainActivity extends FragmentActivity
 {
 	public static long INTERVAL_FIFTEEN_MINUTES = 60 * 1000L;
-	public static TextView homeLocationTextview;
+	public static TextView homeLocationTextview, alarmTextView;
 	public static NotificationCompat.Builder mBuilder;
 	public static int alarmHour, alarmMinute;
 	public static Boolean alarmSet = false;
@@ -44,7 +44,7 @@ public class MainActivity extends FragmentActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		TextView setAlarmTextView = (TextView) findViewById(R.id.alarmTextView);
+		alarmTextView = (TextView) findViewById(R.id.alarmTextView);
 		homeLocationTextview = (TextView) findViewById(R.id.homeLocationTextview);
 		mBuilder = new NotificationCompat.Builder(this)
 				.setSmallIcon(R.drawable.alarm_clock_icon)
@@ -74,6 +74,7 @@ public class MainActivity extends FragmentActivity
 		if(trafficAlarmManager!=null)
 		{
 			trafficAlarmManager.cancel(trafficAlarmPendingIntent);
+			alarmTextView.setText(R.string.setAlarm);
 			Toast.makeText(getApplicationContext(), "Alarm cancelled", Toast.LENGTH_LONG).show();
 		}
 	}
@@ -118,7 +119,7 @@ public class MainActivity extends FragmentActivity
 			alarmSet = false;
 
 			// Create a new instance of TimePickerDialog and return it
-			TimePickerDialog tpDialog = new TimePickerDialog(getActivity(),
+			final TimePickerDialog tpDialog = new TimePickerDialog(getActivity(),
 					this, hour, minute,
 					DateFormat.is24HourFormat(getActivity()));
 			tpDialog.setCancelable(true);
@@ -129,6 +130,7 @@ public class MainActivity extends FragmentActivity
 						public void onClick(DialogInterface dialog, int which)
 						{
 							alarmSet = false;
+							tpDialog.dismiss();
 						}
 					});
 			tpDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Set",
@@ -145,9 +147,6 @@ public class MainActivity extends FragmentActivity
 
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute)
 		{
-			Toast.makeText(getActivity(), "Not cancelled", Toast.LENGTH_SHORT)
-					.show();
-			alarmSet = true;
 			alarmHour = hourOfDay;
 			alarmMinute = minute;
 			if (alarmSet)
@@ -160,12 +159,13 @@ public class MainActivity extends FragmentActivity
 
 				Calendar calendar = Calendar.getInstance();
 				calendar.setTimeInMillis(System.currentTimeMillis());
-				calendar.set(Calendar.HOUR_OF_DAY, alarmHour);
+				calendar.set(Calendar.HOUR_OF_DAY, alarmHour - 2);
 				calendar.set(Calendar.MINUTE, alarmMinute);
 				trafficAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
 						calendar.getTimeInMillis(), INTERVAL_FIFTEEN_MINUTES,
 						trafficAlarmPendingIntent);
-				Toast.makeText(getActivity(), "Alarm set", Toast.LENGTH_SHORT).show();
+				alarmTextView.setText(alarmHour + " : " + alarmMinute);
+				Toast.makeText(getActivity(), "Alarm set for " + alarmHour + " : " + alarmMinute, Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
